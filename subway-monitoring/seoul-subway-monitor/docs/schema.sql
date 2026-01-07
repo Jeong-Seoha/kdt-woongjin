@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS realtime_subway_positions (
     train_status VARCHAR(10),              -- trainSttus: 0:진입, 1:도착, 2:출발, 3:전전역출발 등
     is_express VARCHAR(10),                -- directAt: 1:급행, 0:아님, 7:특급
     is_last_train BOOLEAN DEFAULT FALSE,   -- lstcarAt: 막차 여부
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL -- 데이터 적재 시간
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() NOT NULL
+    -- created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL -- 데이터 적재 시간
 );
 
 -- 인덱스 생성 (조회 성능 최적화)
